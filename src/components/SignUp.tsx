@@ -1,12 +1,12 @@
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {Form} from './Form';
-import {setUser} from '../store/slices/userSlice';
+import {setUser} from '../store/userSlice';
 import { useAppDispatch } from '../hooks/redux-hooks';
 
 const SignUp = () => {
     const dispatch = useAppDispatch();
-    const {push} = useHistory();
+    // const {push} = useHistory();
 
     const handleRegister = (email: string, password: string) => {
         const auth = getAuth();
@@ -18,7 +18,7 @@ const SignUp = () => {
                     id: user.uid,
                     token: user.refreshToken,
                 }));
-                push('/');
+                // push('/');
             })
             .catch(console.error)
     }

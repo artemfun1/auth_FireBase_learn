@@ -1,6 +1,6 @@
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 import { useAuth } from '../hooks/use-auth';
-import {removeUser} from '../store/slices/userSlice'
+import {removeUser} from '../store/userSlice'
 import { useAppDispatch } from '../hooks/redux-hooks';
 
 const HomePage = () => {
@@ -17,7 +17,7 @@ const HomePage = () => {
             >Log out from {email}</button>
         </div>
     ) : (
-        <Redirect to="/login" />
+        // <Redirect to="/login" />
     )
 }
 

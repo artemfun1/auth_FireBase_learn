@@ -1,13 +1,13 @@
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {Form} from './Form';
-import {setUser} from '../store/slices/userSlice';
+import {setUser} from '../store/userSlice';
 import { useAppDispatch } from '../hooks/redux-hooks';
 
 const Login = () => {
     const dispatch = useAppDispatch();
-    const {push} = useHistory();
+    // const {push} = useHistory();
     
     const handleLogin = (email: string, password: string) => {
         const auth = getAuth();
@@ -19,7 +19,7 @@ const Login = () => {
                     id: user.uid,
                     token: user.refreshToken,
                 }));
-                push('/');
+                // push('/');
             })
             .catch(() => alert('Invalid user!'))
     }
