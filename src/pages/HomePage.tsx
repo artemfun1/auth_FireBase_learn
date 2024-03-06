@@ -1,24 +1,34 @@
-// import {Redirect} from 'react-router-dom';
-import { useAuth } from '../hooks/use-auth';
-import {removeUser} from '../store/userSlice'
-import { useAppDispatch } from '../hooks/redux-hooks';
+import { FC } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../hooks/redux-hooks";
+import { useAuth } from "../hooks/use-auth";
+import { removeUser } from "../store/userSlice";
 
-const HomePage = () => {
-    const dispatch = useAppDispatch();
+const HomePage:FC = () => {
+	const dispatch = useAppDispatch();
 
-    const {isAuth, email} = useAuth();
+	const { isAuth, email } = useAuth();
 
-    return isAuth ? (
-        <div>
-            <h1>Welcome</h1>
+	const navigate = useNavigate();
 
-            <button
-                onClick={()=> dispatch(removeUser())}
-            >Log out from {email}</button>
-        </div>
-    ) : (
-        // <Redirect to="/login" />
-    )
-}
+	useEffect(() => {
+		if (!isAuth) {
+			navigate("/login");
+		}
+	});
 
-export default HomePage
+	if (isAuth) {
+		return (
+			<div>
+				<h1>Welcome</h1>
+
+				<button onClick={() => dispatch(removeUser())}>
+					Log out from {email}
+				</button>
+			</div>
+		);
+	}
+};
+
+export default HomePage;

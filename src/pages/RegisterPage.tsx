@@ -1,7 +1,8 @@
+import { FC } from 'react'
 import { SignUp } from '../components/SignUp';
 import { Link } from 'react-router-dom';
 
-const RegisterPage = () => {
+const RegisterPage:FC = () => {
     return (
         <div>
             <h1>Register</h1>

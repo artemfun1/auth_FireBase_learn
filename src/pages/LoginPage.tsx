@@ -1,7 +1,9 @@
+import { FC } from 'react'
 import { Login } from '../components/Login';
 import { Link } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage:FC = () => {
+    
     return (
         <div>
             <h1>Login</h1>
